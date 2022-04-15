@@ -4,23 +4,22 @@ import cors from "cors";
 import ProductRouter from "./Routes/ProductRouter.js";
 import connect from "./config/mongodb.js";
 import DataImport from "./Routes/DataImport.js";
+import { ErrorHandler, NotFound } from "./Middleware/ErrorHandler.js";
 
 connect();
 const app = express();
 app.use(cors({ origin: ["http://localhost:3000"] }));
 
-// ------------------------------------------- API Routes
-// import data into mongo db
+//API Routes
 app.use("/api/import", DataImport);
-
-// Products
 app.use("/api/products", ProductRouter);
-// ------------------------------------------- FrontEnd Routes
-// Home page
-app.get("/", (req, res) => {
-  app.use;
-  res.send("API is up and running");
-});
+
+// Error handlers
+app.use(NotFound);
+app.use(ErrorHandler);
 
 const port = process.env.PORT || 1000;
-app.listen(port, console.log(`server now started at port ${port}`));
+app.listen(port, () => {
+  console.clear();
+  console.log(`server now started at port ${port}`);
+});

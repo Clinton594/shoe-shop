@@ -2,7 +2,7 @@ const domain = "http://localhost:5000/";
 const routes = {
   home: "/",
   products: "/products",
-  product: "/product/:id",
+  product: "/product/",
   login: "/login",
   register: "/register",
   profile: "/profile",
@@ -14,7 +14,6 @@ const routes = {
   notFound: "/*",
   api: {
     products: `${domain}api/products`,
-    product: `${domain}api/product/`,
   },
 };
 

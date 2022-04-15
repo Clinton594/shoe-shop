@@ -10,7 +10,8 @@ const SingleProduct = ({ match }) => {
   const [product, setProduct] = useState({});
 
   useEffect(async () => {
-    const { data } = await axios.get(`${routes.api.product}${match.params.id}`);
+    console.log(match);
+    const { data } = await axios.get(`${routes.api.products}${match.params.id}`);
     setProduct(data);
   }, []);
   return (

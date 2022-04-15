@@ -18,7 +18,7 @@ const PlaceOrderScreen = () => {
             <div className="row ">
               <div className="col-md-4 center">
                 <div className="alert-success order-box">
-                  <i class="fas fa-user"></i>
+                  <i className="fas fa-user"></i>
                 </div>
               </div>
               <div className="col-md-8 center">
@@ -59,9 +59,7 @@ const PlaceOrderScreen = () => {
                 <h5>
                   <strong>Deliver to</strong>
                 </h5>
-                <p>
-                  Address: Arusha Tz, Ngaramtoni Crater, P.O BOX 1234 Arusha Tz
-                </p>
+                <p>Address: Arusha Tz, Ngaramtoni Crater, P.O BOX 1234 Arusha Tz</p>
               </div>
             </div>
           </div>

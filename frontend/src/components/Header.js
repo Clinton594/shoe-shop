@@ -53,7 +53,7 @@ const Header = () => {
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      <i class="fas fa-user"></i>
+                      <i className="fas fa-user"></i>
                     </button>
                     <div className="dropdown-menu">
                       <Link className="dropdown-item" to="/profile">
@@ -72,11 +72,7 @@ const Header = () => {
                 </div>
                 <div className="col-12 d-flex align-items-center">
                   <form className="input-group">
-                    <input
-                      type="search"
-                      className="form-control rounded search"
-                      placeholder="Search"
-                    />
+                    <input type="search" className="form-control rounded search" placeholder="Search" />
                     <button type="submit" className="search-button">
                       search
                     </button>
@@ -96,11 +92,7 @@ const Header = () => {
               </div>
               <div className="col-md-6 col-8 d-flex align-items-center">
                 <form className="input-group">
-                  <input
-                    type="search"
-                    className="form-control rounded search"
-                    placeholder="Search"
-                  />
+                  <input type="search" className="form-control rounded search" placeholder="Search" />
                   <button type="submit" className="search-button">
                     search
                   </button>

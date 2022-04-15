@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./../components/Header";
 import Rating from "../components/homeComponents/Rating";
 import { Link } from "react-router-dom";
 import Message from "./../components/LoadingError/Error";
-import products from "../data/Products";
+import routes from "./../constants/routes";
+import axios from "axios";
 
 const SingleProduct = ({ match }) => {
-  const product = products.find((p) => p._id === match.params.id);
+  const [product, setProduct] = useState({});
+
+  useEffect(async () => {
+    const { data } = await axios.get(`${routes.api.product}${match.params.id}`);
+    setProduct(data);
+  }, []);
   return (
     <>
       <Header />
@@ -14,13 +20,13 @@ const SingleProduct = ({ match }) => {
         <div className="row">
           <div className="col-md-6">
             <div className="single-image">
-              <img src={product.image} alt={product.name} />
+              <img src={product.image} alt={product.title} />
             </div>
           </div>
           <div className="col-md-6">
             <div className="product-dtl">
               <div className="product-info">
-                <div className="product-name">{product.name}</div>
+                <div className="product-name">{product.title}</div>
               </div>
               <p>{product.description}</p>
 
@@ -31,18 +37,11 @@ const SingleProduct = ({ match }) => {
                 </div>
                 <div className="flex-box d-flex justify-content-between align-items-center">
                   <h6>Status</h6>
-                  {product.countInStock > 0 ? (
-                    <span>In Stock</span>
-                  ) : (
-                    <span>unavailable</span>
-                  )}
+                  {product.countInStock > 0 ? <span>In Stock</span> : <span>unavailable</span>}
                 </div>
                 <div className="flex-box d-flex justify-content-between align-items-center">
                   <h6>Reviews</h6>
-                  <Rating
-                    value={product.rating}
-                    text={`${product.numReviews} reviews`}
-                  />
+                  <Rating value={product.rating} text={`${product.numReviews} reviews`} />
                 </div>
                 {product.countInStock > 0 ? (
                   <>
@@ -74,10 +73,9 @@ const SingleProduct = ({ match }) => {
               <Rating />
               <span>Jan 12 2021</span>
               <div className="alert alert-info mt-3">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book
+                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book
               </div>
             </div>
           </div>
@@ -99,15 +97,10 @@ const SingleProduct = ({ match }) => {
               </div>
               <div className="my-4">
                 <strong>Comment</strong>
-                <textarea
-                  row="3"
-                  className="col-12 bg-light p-3 mt-2 border-0 rounded"
-                ></textarea>
+                <textarea row="3" className="col-12 bg-light p-3 mt-2 border-0 rounded"></textarea>
               </div>
               <div className="my-3">
-                <button className="col-12 bg-black border-0 p-3 rounded text-white">
-                  SUBMIT
-                </button>
+                <button className="col-12 bg-black border-0 p-3 rounded text-white">SUBMIT</button>
               </div>
             </form>
             <div className="my-3">

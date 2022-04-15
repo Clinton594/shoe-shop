@@ -14,22 +14,23 @@ import PaymentScreen from "./screens/PaymentScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import NotFound from "./screens/NotFound";
+import routes from "./constants/routes";
 
 const App = () => {
   return (
     <Router>
       <Switch>
-        <Route path="/" component={HomeScreen} exact />
-        <Route path="/products/:id" component={SingleProduct} />
-        <Route path="/login" component={Login} />
-        <Route path="/register" component={Register} />
-        <Route path="/profile" component={ProfileScreen} />
-        <Route path="/cart/:id?" component={CartScreen} />
-        <Route path="/shipping" component={ShippingScreen} />
-        <Route path="/payment" component={PaymentScreen} />
-        <Route path="/placeorder" component={PlaceOrderScreen} />
-        <Route path="/order" component={OrderScreen} />
-        <Route path="*" component={NotFound} />
+        <Route path={routes.home} component={HomeScreen} exact />
+        <Route path={`${routes.product}`} component={SingleProduct} />
+        <Route path={`${routes.login}`} component={Login} />
+        <Route path={`${routes.register}`} component={Register} />
+        <Route path={`${routes.profile}`} component={ProfileScreen} />
+        <Route path={`${routes.cart}`} component={CartScreen} />
+        <Route path={`${routes.shipping}`} component={ShippingScreen} />
+        <Route path={`${routes.payment}`} component={PaymentScreen} />
+        <Route path={`${routes.placeorder}`} component={PlaceOrderScreen} />
+        <Route path={`${routes.order}`} component={OrderScreen} />
+        <Route path={`${routes.notFound}`} component={NotFound} />
       </Switch>
     </Router>
   );

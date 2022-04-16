@@ -13,7 +13,7 @@ const routes = {
   order: "/order",
   notFound: "/*",
   api: {
-    products: `${domain}api/products`,
+    products: `${domain}api/products/`,
   },
 };
 

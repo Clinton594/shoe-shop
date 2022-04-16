@@ -21,7 +21,7 @@ const App = () => {
     <Router>
       <Switch>
         <Route path={routes.home} component={HomeScreen} exact />
-        <Route path={`${routes.product}`} component={SingleProduct} />
+        <Route path={`${routes.product}:id`} component={SingleProduct} />
         <Route path={`${routes.login}`} component={Login} />
         <Route path={`${routes.register}`} component={Register} />
         <Route path={`${routes.profile}`} component={ProfileScreen} />
